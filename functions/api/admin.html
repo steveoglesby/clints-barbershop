@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Clint's Barbershop</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    html, body { background: #060608; color: #e8e8e8; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red: #c0392b; --gold: #c9a227; --mid: #141418; --light: #e8e8e8; --muted: #999; --green: #27ae60; }
+    body { font-family: 'Crimson Pro', Georgia, serif; min-height: 100vh; }
+
+    /* LOGIN */
+    #login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+    .login-box { width: 100%; max-width: 380px; }
+    .login-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 0.25rem; }
+    .login-sub { color: var(--muted); font-style: italic; margin-bottom: 2rem; }
+    .field { margin-bottom: 1.25rem; }
+    label { display: block; font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    input[type="password"], input[type="text"], input[type="tel"], input[type="date"], input[type="time"], textarea {
+      width: 100%; background: var(--mid); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--light); font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem;
+      padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0;
+    }
+    input:focus, textarea:focus { border-color: var(--red); }
+    .btn { display: block; width: 100%; padding: 0.85rem 2rem; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: none; transition: all 0.2s; text-align: center; }
+    .btn-primary { background: var(--red); color: #fff; margin-bottom: 0.75rem; }
+    .btn-primary:hover { background: #a93226; }
+    .btn-sm { display: inline-block; width: auto; padding: 0.4rem 1rem; font-size: 0.7rem; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: #219a52; }
+    .btn-outline { background: transparent; color: var(--light); border: 1px solid rgba(232,232,232,0.2); margin-bottom: 0.75rem; }
+    .login-err { color: var(--red); font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.05em; margin-top: 0.5rem; display: none; }
+
+    /* ADMIN */
+    #admin-screen { display: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; background: rgba(6,6,8,0.97); border-bottom: 1px solid rgba(192,57,43,0.25); }
+    .nav-brand { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); opacity: 0.7; }
+    .nav-actions { display: flex; gap: 1rem; align-items: center; }
+    .nav-logout { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); cursor: pointer; border: none; background: none; transition: color 0.2s; }
+    .nav-logout:hover { color: var(--red); }
+
+    main { padding: 80px 1.5rem 4rem; max-width: 900px; margin: 0 auto; }
+
+    .date-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .date-nav-btn { background: var(--mid); border: 1px solid rgba(255,255,255,0.1); color: var(--light); font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .date-nav-btn:hover { border-color: var(--red); color: var(--red); }
+    .date-display { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; flex: 1; }
+    input[type="date"].date-picker { width: auto; font-size: 0.9rem; padding: 0.5rem 0.75rem; }
+
+    .section-title { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+
+    .appt-list { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3rem; }
+    .appt-card { background: var(--mid); border: 1px solid rgba(255,255,255,0.07); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .appt-card.completed { opacity: 0.45; }
+    .appt-card.cancelled { opacity: 0.3; border-color: rgba(192,57,43,0.2); }
+    .appt-time { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); min-width: 80px; }
+    .appt-info { flex: 1; }
+    .appt-name { font-size: 1.1rem; font-weight: 600; color: var(--light); }
+    .appt-phone { font-size: 0.9rem; color: var(--muted); }
+    .appt-notes { font-size: 0.9rem; color: var(--muted); font-style: italic; margin-top: 0.2rem; }
+    .appt-source { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.5rem; margin-top: 0.3rem; }
+    .source-online { background: rgba(26,110,196,0.2); color: #5b9bd5; }
+    .source-manual { background: rgba(201,162,39,0.2); color: var(--gold); }
+    .appt-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .btn-done { background: rgba(39,174,96,0.15); color: #5dbb85; border: 1px solid rgba(39,174,96,0.3); font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s; }
+    .btn-done:hover { background: rgba(39,174,96,0.3); }
+    .btn-cancel { background: rgba(192,57,43,0.1); color: #e07070; border: 1px solid rgba(192,57,43,0.25); font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s; }
+    .btn-cancel:hover { background: rgba(192,57,43,0.25); }
+
+    .empty-state { text-align: center; padding: 3rem 1rem; color: var(--muted); font-style: italic; border: 1px solid rgba(255,255,255,0.05); }
+
+    /* ADD FORM */
+    .add-form { background: var(--mid); border: 1px solid rgba(192,57,43,0.25); padding: 1.5rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-grid .field { margin-bottom: 0; }
+    .form-full { grid-column: 1 / -1; }
+
+    .loading { text-align: center; padding: 2rem; color: var(--muted); font-style: italic; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .appt-card { gap: 0.75rem; }
+      .date-display { font-size: 1.3rem; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-title">Admin</div>
+    <p class="login-sub">Clint's Barbershop · Schedule</p>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()" />
+      <div class="login-err" id="login-err">Incorrect password.</div>
+    </div>
+    <button class="btn btn-primary" onclick="doLogin()">Sign In →</button>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin-screen">
+  <nav>
+    <span class="nav-brand">Clint's · Admin</span>
+    <div class="nav-actions">
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Date Navigation -->
+    <div class="date-nav">
+      <button class="date-nav-btn" onclick="changeDay(-1)">← Prev</button>
+      <div class="date-display" id="date-display"></div>
+      <button class="date-nav-btn" onclick="changeDay(1)">Next →</button>
+      <button class="date-nav-btn" onclick="goToday()">Today</button>
+      <input type="date" class="date-picker" id="date-picker" onchange="goDate(this.value)" />
+    </div>
+
+    <!-- Appointments -->
+    <div class="section-title">Appointments</div>
+    <div class="appt-list" id="appt-list">
+      <div class="loading">Loading...</div>
+    </div>
+
+    <!-- Add Appointment -->
+    <div class="section-title">Add Appointment</div>
+    <div class="add-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="a-name">Name</label>
+          <input type="text" id="a-name" placeholder="Customer name" />
+        </div>
+        <div class="field">
+          <label for="a-phone">Phone</label>
+          <input type="tel" id="a-phone" placeholder="(903) 555-0000" />
+        </div>
+        <div class="field">
+          <label for="a-date">Date</label>
+          <input type="date" id="a-date" />
+        </div>
+        <div class="field">
+          <label for="a-time">Time</label>
+          <input type="time" id="a-time" step="1800" />
+        </div>
+        <div class="field form-full">
+          <label for="a-notes">Notes (optional)</label>
+          <textarea id="a-notes" rows="2" placeholder="e.g. fade, beard trim..."></textarea>
+        </div>
+      </div>
+      <br/>
+      <button class="btn btn-primary" onclick="addAppointment()" style="max-width:240px;">Add Appointment +</button>
+    </div>
+  </main>
+</div>
+
+<script>
+  const ADMIN_PASSWORD = 'clints2024';
+  let currentDate = new Date();
+  currentDate.setHours(0,0,0,0);
+
+  function doLogin() {
+    const pw = document.getElementById('password').value;
+    if (pw === ADMIN_PASSWORD) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-screen').style.display = 'block';
+      sessionStorage.setItem('admin_auth', '1');
+      initAdmin();
+    } else {
+      document.getElementById('login-err').style.display = 'block';
+    }
+  }
+
+  function doLogout() {
+    sessionStorage.removeItem('admin_auth');
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('admin-screen').style.display = 'none';
+    document.getElementById('password').value = '';
+  }
+
+  function initAdmin() {
+    if (sessionStorage.getItem('admin_auth')) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-screen').style.display = 'block';
+    }
+    // Set date picker default
+    document.getElementById('a-date').value = toDateStr(currentDate);
+    updateDateDisplay();
+    loadAppointments();
+  }
+
+  function toDateStr(d) {
+    return d.toISOString().split('T')[0];
+  }
+
+  function updateDateDisplay() {
+    const opts = { weekday: 'long', month: 'long', day: 'numeric' };
+    const isToday = toDateStr(currentDate) === toDateStr(new Date());
+    document.getElementById('date-display').textContent =
+      (isToday ? 'Today — ' : '') + currentDate.toLocaleDateString('en-US', opts);
+    document.getElementById('date-picker').value = toDateStr(currentDate);
+  }
+
+  function changeDay(n) {
+    currentDate.setDate(currentDate.getDate() + n);
+    updateDateDisplay();
+    loadAppointments();
+  }
+
+  function goToday() {
+    currentDate = new Date(); currentDate.setHours(0,0,0,0);
+    updateDateDisplay(); loadAppointments();
+  }
+
+  function goDate(val) {
+    if (!val) return;
+    currentDate = new Date(val + 'T00:00:00');
+    updateDateDisplay(); loadAppointments();
+  }
+
+  function formatTime(t) {
+    const [h,m] = t.split(':').map(Number);
+    return `${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;
+  }
+
+  async function loadAppointments() {
+    const list = document.getElementById('appt-list');
+    list.innerHTML = '<div class="loading">Loading...</div>';
+    const dateStr = toDateStr(currentDate);
+    try {
+      const res = await fetch(`/api/admin/appointments?date=${dateStr}`, {
+        headers: { 'x-admin-password': ADMIN_PASSWORD }
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      renderAppointments(data.appointments || []);
+    } catch(e) {
+      list.innerHTML = '<div class="empty-state">Could not load appointments. Is the API set up?</div>';
+    }
+  }
+
+  function renderAppointments(appointments) {
+    const list = document.getElementById('appt-list');
+    if (!appointments.length) {
+      list.innerHTML = '<div class="empty-state">No appointments for this day.</div>';
+      return;
+    }
+    appointments.sort((a,b) => a.time.localeCompare(b.time));
+    list.innerHTML = appointments.map(appt => `
+      <div class="appt-card ${appt.status}" id="appt-${appt.id}">
+        <div class="appt-time">${formatTime(appt.time)}</div>
+        <div class="appt-info">
+          <div class="appt-name">${appt.name}</div>
+          <div class="appt-phone"><a href="tel:${appt.phone}" style="color:var(--muted);text-decoration:none;">${appt.phone}</a></div>
+          ${appt.notes ? `<div class="appt-notes">${appt.notes}</div>` : ''}
+          <span class="appt-source source-${appt.source}">${appt.source}</span>
+          ${appt.status !== 'active' ? `<span class="appt-source" style="background:rgba(255,255,255,0.05);color:var(--muted);margin-left:0.25rem;">${appt.status}</span>` : ''}
+        </div>
+        <div class="appt-actions">
+          ${appt.status === 'active' ? `
+            <button class="btn-done" onclick="updateStatus(${appt.id},'completed')">✓ Done</button>
+            <button class="btn-cancel" onclick="updateStatus(${appt.id},'cancelled')">✕ Cancel</button>
+          ` : `
+            <button class="btn-done" onclick="updateStatus(${appt.id},'active')" style="opacity:0.6;">Restore</button>
+          `}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function updateStatus(id, status) {
+    try {
+      const res = await fetch(`/api/admin/appointments/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', 'x-admin-password': ADMIN_PASSWORD },
+        body: JSON.stringify({ status })
+      });
+      if (res.ok) loadAppointments();
+    } catch(e) { alert('Could not update appointment.'); }
+  }
+
+  async function addAppointment() {
+    const name = document.getElementById('a-name').value.trim();
+    const phone = document.getElementById('a-phone').value.trim();
+    const date = document.getElementById('a-date').value;
+    const time = document.getElementById('a-time').value;
+    const notes = document.getElementById('a-notes').value.trim();
+
+    if (!name || !phone || !date || !time) {
+      alert('Please fill in name, phone, date and time.');
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/admin/appointments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin-password': ADMIN_PASSWORD },
+        body: JSON.stringify({ name, phone, date, time, notes, source: 'manual' })
+      });
+      if (res.ok) {
+        document.getElementById('a-name').value = '';
+        document.getElementById('a-phone').value = '';
+        document.getElementById('a-notes').value = '';
+        // Navigate to the added date
+        currentDate = new Date(date + 'T00:00:00');
+        updateDateDisplay();
+        loadAppointments();
+      } else {
+        const data = await res.json();
+        alert(data.error || 'Could not add appointment.');
+      }
+    } catch(e) { alert('Could not add appointment. Is the API set up?'); }
+  }
+
+  // Auto-login if session active
+  if (sessionStorage.getItem('admin_auth')) initAdmin();
+</script>
+</body>
+</html>
