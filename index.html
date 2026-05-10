@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clint's Barbershop | Texarkana, TX</title>
-  <meta name="description" content="Clint's Barbershop in Texarkana, TX. Haircuts, shaves, beard trims, and fades by Clint McGaugh. Walk-ins welcome, appointments encouraged. Call (903) 278-7793." />
+  <meta name="description" content="Clint's Barbershop in Texarkana, TX. Haircuts, shaves, beard trims, and fades by Clint McGaugh. Walk-ins welcome." />
   <meta name="keywords" content="barber, barbershop, Texarkana, haircut, shave, beard trim, fade, Clint McGaugh, Stateline Avenue" />
   <link rel="canonical" href="https://clintsbarbershop.com/" />
   <meta property="og:title" content="Clint's Barbershop | Texarkana, TX" />
@@ -39,786 +40,691 @@
       "https://www.instagram.com/clintsbarbershop"
     ]
   }
-  <\/script>
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --red:    #c0392b;
-      --blue:   #1a6ec4;
-      --chrome: #b0bec5;
-      --gold:   #c9a227;
-      --dark:   #0a0a0b;
-      --darker: #060608;
-      --mid:    #141418;
-      --light:  #e8e8e8;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--darker);
-      color: var(--light);
-      font-family: 'Crimson Pro', Georgia, serif;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.035;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(to bottom, rgba(6,6,8,0.97), transparent);
-      border-bottom: 1px solid rgba(192,57,43,0.15);
-      gap: 1rem;
-    }
-
-    nav .nav-brand {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      color: var(--chrome);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav ul a {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--chrome);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    nav ul a:hover { color: #fff; }
-
-    /* ── SOCIAL ICONS ── */
-    .social-links {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-shrink: 0;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(176,190,197,0.25);
-      border-radius: 50%;
-      text-decoration: none;
-      color: var(--chrome);
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-    }
-
-    .social-link:hover {
-      border-color: var(--chrome);
-      background: rgba(176,190,197,0.1);
-      transform: translateY(-2px);
-      color: #fff;
-    }
-
-    .social-link svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding: 6rem 2rem 4rem;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,110,196,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 30% 70%, rgba(192,57,43,0.07) 0%, transparent 60%),
-        var(--darker);
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -55deg,
-        transparent, transparent 60px,
-        rgba(192,57,43,0.025) 60px, rgba(192,57,43,0.025) 62px
-      );
-      pointer-events: none;
-    }
-
-    .hero-logo {
-      width: min(420px, 82vw);
-      filter: drop-shadow(0 0 40px rgba(26,110,196,0.4)) drop-shadow(0 0 80px rgba(192,57,43,0.2));
-      animation: floatLogo 6s ease-in-out infinite, fadeIn 1.2s ease both;
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-tagline {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: clamp(0.75rem, 2vw, 0.95rem);
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--chrome);
-      margin-top: 2rem;
-      animation: fadeIn 1.2s ease 0.3s both;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-tagline span {
-      display: inline-block;
-      width: 40px;
-      height: 1px;
-      background: var(--red);
-      vertical-align: middle;
-      margin: 0 14px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.4rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeIn 1.2s ease 0.6s both;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-social {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.6rem;
-      justify-content: center;
-      animation: fadeIn 1.2s ease 0.9s both;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-social .social-link {
-      width: 44px;
-      height: 44px;
-    }
-
-    .hero-social .social-link svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    /* ── BUTTONS ── */
-    .btn {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 500;
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2.2rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-    }
-
-    .btn-primary:hover {
-      background: #e74c3c;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(192,57,43,0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--chrome);
-      border: 1px solid rgba(176,190,197,0.4);
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--chrome);
-      color: #fff;
-      background: rgba(176,190,197,0.07);
-      transform: translateY(-2px);
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 6rem 2rem; }
-
-    .section-label {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--red);
-      text-align: center;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      letter-spacing: 0.06em;
-      text-align: center;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      font-size: 1.05rem;
-      color: rgba(232,232,232,0.55);
-      text-align: center;
-      max-width: 480px;
-      margin: 0 auto 3.5rem;
-      font-style: italic;
-      line-height: 1.7;
-    }
-
-    /* ── SERVICES ── */
-    #services {
-      background: var(--mid);
-      position: relative;
-    }
-
-    #services::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--red), transparent);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      max-width: 1000px;
-      margin: 0 auto;
-      background: rgba(192,57,43,0.12);
-      border: 1px solid rgba(192,57,43,0.12);
-    }
-
-    .service-card {
-      background: var(--mid);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--red);
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-
-    .service-card:hover { background: rgba(192,57,43,0.06); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-
-    .service-name {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-desc { font-size: 0.9rem; color: rgba(232,232,232,0.5); line-height: 1.6; }
-
-    /* ── ABOUT ── */
-    #about { background: var(--darker); }
-
-    .about-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-text h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.08em;
-      color: #fff;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-text p {
-      font-size: 1.05rem;
-      color: rgba(232,232,232,0.65);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-    }
-
-    .about-text p strong { color: var(--chrome); font-style: italic; }
-
-    .about-badge {
-      background: var(--mid);
-      border: 1px solid rgba(192,57,43,0.25);
-      padding: 2.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .about-badge::before, .about-badge::after {
-      content: '';
-      position: absolute;
-      width: 12px; height: 12px;
-      border-color: var(--red);
-      border-style: solid;
-    }
-    .about-badge::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
-    .about-badge::after  { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
-
-    .badge-main {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      line-height: 1;
-      color: var(--red);
-      letter-spacing: 0.04em;
-    }
-
-    .badge-sub {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.78rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--chrome);
-      margin-top: 0.5rem;
-    }
-
-    .badge-divider { width: 40px; height: 1px; background: var(--gold); margin: 1rem auto; }
-
-    /* ── BARBER POLE ── */
-    .pole {
-      width: 4px;
-      height: 60px;
-      background: repeating-linear-gradient(
-        to bottom,
-        var(--red) 0px, var(--red) 10px,
-        #fff 10px, #fff 20px,
-        var(--blue) 20px, var(--blue) 30px
-      );
-      border-radius: 2px;
-      margin: 0 auto 2rem;
-      display: block;
-      animation: poleSpin 3s linear infinite;
-    }
-
-    @keyframes poleSpin {
-      from { background-position: 0 0; }
-      to   { background-position: 0 30px; }
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--mid);
-      position: relative;
-    }
-
-    #contact::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--blue), transparent);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .contact-card {
-      background: var(--darker);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 2.2rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-
-    .contact-card:hover {
-      border-color: rgba(26,110,196,0.4);
-      transform: translateY(-4px);
-    }
-
-    .contact-card-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
-
-    .contact-card-label {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.6rem;
-    }
-
-    .contact-card-value { font-size: 1.05rem; color: #fff; line-height: 1.6; }
-    .contact-card-value a { color: inherit; text-decoration: none; }
-    .contact-card-value a:hover { color: var(--chrome); }
-
-    /* Hours table */
-    .hours-table { width: 100%; border-collapse: collapse; }
-
-    .hours-table td {
-      font-size: 0.92rem;
-      padding: 0.28rem 0;
-      color: rgba(232,232,232,0.7);
-      line-height: 1.5;
-    }
-
-    .hours-table td:first-child {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 400;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--chrome);
-      padding-right: 1.2rem;
-      white-space: nowrap;
-    }
-
-    .hours-table tr.today td { color: #fff; }
-    .hours-table tr.today td:first-child { color: var(--gold); }
-    .hours-closed { color: rgba(192,57,43,0.65) !important; font-style: italic; }
-
-    /* Social card row */
-    .social-card-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 0.4rem;
-    }
-
-    .social-card-row .social-link {
-      width: 42px;
-      height: 42px;
-    }
-
-    .social-card-row .social-link svg {
-      width: 17px;
-      height: 17px;
-    }
-
-    /* Walk-in banner */
-    .walkin-banner {
-      max-width: 960px;
-      margin: 2.5rem auto 0;
-      background: linear-gradient(135deg, rgba(192,57,43,0.15), rgba(26,110,196,0.15));
-      border: 1px solid rgba(192,57,43,0.3);
-      padding: 1.6rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
-    }
-
-    .walkin-icon { font-size: 1.6rem; flex-shrink: 0; }
-
-    .walkin-text {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 400;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--light);
-    }
-
-    .walkin-text span { color: var(--gold); font-weight: 600; }
-
-    /* ── MAP ── */
-    #map {
-      background: var(--darker);
-      padding: 0;
-      height: 340px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #map iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: grayscale(1) invert(1) contrast(0.85) brightness(0.8) hue-rotate(180deg);
-      opacity: 0.8;
-    }
-
-    .map-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to right, rgba(6,6,8,0.7) 0%, transparent 35%, transparent 65%, rgba(6,6,8,0.7) 100%),
-        linear-gradient(to bottom, rgba(6,6,8,0.5) 0%, transparent 30%);
-      pointer-events: none;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--darker);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-social { display: flex; gap: 0.75rem; }
-
-    .footer-social .social-link {
-      width: 32px;
-      height: 32px;
-      border-color: rgba(176,190,197,0.15);
-    }
-
-    .footer-social .social-link svg { width: 13px; height: 13px; }
-
-    footer p {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(176,190,197,0.35);
-    }
-
-    footer p a { color: rgba(176,190,197,0.5); text-decoration: none; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 760px) {
-      nav ul { display: none; }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-badge { max-width: 280px; margin: 0 auto; }
-      .walkin-banner { clip-path: none; flex-direction: column; text-align: center; }
-    }
+```
+:root {
+  --red:    #c0392b;
+  --blue:   #1a6ec4;
+  --gold:   #c9a227;
+  --dark:   #0a0a0c;
+  --darker: #060608;
+  --mid:    #141418;
+  --light:  #e8e8e8;
+  --muted:  #999;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--darker);
+  color: var(--light);
+  font-family: 'Crimson Pro', Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: rgba(6,6,8,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(192,57,43,0.25);
+}
+
+.nav-logo {
+  height: 38px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.nav-links a:hover { opacity: 1; color: var(--red); }
+
+.nav-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-social a { color: var(--muted); transition: color 0.2s; }
+.nav-social a:hover { color: var(--red); }
+.nav-social svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 2rem 4rem;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 60%, rgba(192,57,43,0.08) 0%, transparent 70%);
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  );
+  pointer-events: none;
+}
+
+.hero-logo {
+  width: min(260px, 55vw);
+  height: auto;
+  margin-bottom: 2.5rem;
+  filter: drop-shadow(0 0 40px rgba(192,57,43,0.3));
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-tagline {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+  animation: fadeUp 0.9s 0.25s ease both;
+}
+
+.hero-title span { color: var(--red); }
+
+.hero-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s 0.35s ease both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:hover { background: #a93226; transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--light);
+  border: 1px solid rgba(232,232,232,0.3);
+}
+.btn-outline:hover { border-color: var(--light); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.35;
+  animation: bounce 2s infinite;
+}
+
+.hero-scroll span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--light), transparent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION COMMON */
+section { padding: 6rem 2rem; }
+
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--red);
+  margin-bottom: 2rem;
+}
+
+/* SERVICES */
+#services {
+  background: var(--mid);
+  border-top: 1px solid rgba(192,57,43,0.2);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+}
+
+.services-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: var(--mid);
+  padding: 2.5rem 2rem;
+  transition: background 0.2s;
+}
+
+.service-card:hover { background: #1a1a1e; }
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ABOUT */
+#about {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-stat {
+  border-left: 2px solid var(--red);
+  padding-left: 1.5rem;
+}
+
+.about-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: var(--light);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.about-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(232,232,232,0.8);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p strong { color: var(--light); font-weight: 600; }
+
+.about-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.about-title-tag {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* CONTACT */
+#contact {
+  background: var(--mid);
+  border-top: 1px solid rgba(192,57,43,0.2);
+}
+
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  font-size: 1.25rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.contact-item-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.3rem;
+}
+
+.contact-item-value {
+  font-size: 1rem;
+  color: var(--light);
+  line-height: 1.6;
+}
+
+.contact-item-value a {
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item-value a:hover { color: var(--gold); }
+
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.hours-table tr.today { background: rgba(192,57,43,0.1); }
+.hours-table td {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--light);
+}
+.hours-table td:first-child {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 40%;
+}
+.hours-table tr.today td { color: var(--gold); }
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.social-links a:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* MAP */
+#map {
+  height: 380px;
+  position: relative;
+}
+
+#map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(0.9) contrast(0.85);
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  background: var(--darker);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-social a { color: var(--muted); transition: color 0.2s; }
+.footer-social a:hover { color: var(--red); }
+.footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--light); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+
+  .about-inner,
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  section { padding: 4rem 1.25rem; }
+
+  #map { height: 280px; }
+}
+```
+
   </style>
 </head>
 <body>
 
   <!-- NAV -->
+
   <nav>
-    <a href="#hero" class="nav-brand">Clint's Barbershop</a>
-    <ul>
+    <img src="logo.png" alt="Clint's Barbershop" class="nav-logo" />
+    <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Visit</a></li>
     </ul>
-    <div class="social-links">
-      <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    <div class="nav-social">
+      <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
-      <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
     </div>
   </nav>
 
   <!-- HERO -->
+
   <section id="hero">
     <img src="logo.png" alt="Clint's Barbershop Logo" class="hero-logo" />
-    <p class="hero-tagline">
-      <span></span>Texarkana's Premier Barbershop<span></span>
-    </p>
-    <div class="hero-cta">
-      <a href="tel:9032787793" class="btn btn-primary">&#9990; Call to Book</a>
+    <p class="hero-tagline">Texarkana's Premier Barbershop</p>
+    <h1 class="hero-title">Clint's<br><span>Barbershop</span></h1>
+    <p class="hero-sub">Old school craft. Sharp results. Walk-ins welcome.</p>
+    <div class="hero-ctas">
+      <a href="tel:9032787793" class="btn btn-primary">✆ Call to Book</a>
       <a href="#contact" class="btn btn-outline">Find Us</a>
     </div>
-    <div class="hero-social">
-      <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
   <!-- SERVICES -->
+
   <section id="services">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Classic cuts and modern styles, executed with precision by Clint and his team.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-icon">✂️</span>
-        <p class="service-name">Haircut</p>
-        <p class="service-desc">Classic and contemporary cuts for any style and length.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🪒</span>
-        <p class="service-name">Shave</p>
-        <p class="service-desc">Hot towel straight-razor shaves the old-school way.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🧔</span>
-        <p class="service-name">Beard Trim</p>
-        <p class="service-desc">Sculpted, lined, and shaped to perfection.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">💈</span>
-        <p class="service-name">Fade &amp; Taper</p>
-        <p class="service-desc">Smooth skin fades and clean tapers — any style.</p>
+    <div class="services-inner">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Our Services</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--muted); font-size:1.1rem; max-width:500px;">Classic cuts and modern styles, executed with precision by Clint and his team.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✂️</div>
+          <div class="service-name">Haircut</div>
+          <p class="service-desc">Classic and contemporary cuts for any style and length.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🪒</div>
+          <div class="service-name">Shave</div>
+          <p class="service-desc">Hot towel straight-razor shaves the old-school way.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧔</div>
+          <div class="service-name">Beard Trim</div>
+          <p class="service-desc">Sculpted, lined, and shaped to perfection.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💈</div>
+          <div class="service-name">Fade &amp; Taper</div>
+          <p class="service-desc">Smooth skin fades and clean tapers — any style.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
+
   <section id="about">
     <div class="about-inner">
+      <div class="about-stat-block">
+        <p class="section-label">The Chair</p>
+        <div class="about-stat">
+          <div class="about-stat-num">100%</div>
+          <div class="about-stat-label">Dedicated to the craft</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">4009</div>
+          <div class="about-stat-label">N. Stateline Ave, Texarkana TX</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">6</div>
+          <div class="about-stat-label">Days a week — walk-ins always welcome</div>
+        </div>
+      </div>
       <div class="about-text">
-        <p class="section-label" style="text-align:left; margin-bottom:0.5rem;">The Chair</p>
-        <h3>Clint McGaugh,<br/>Master Barber</h3>
+        <div class="about-name">Clint McGaugh</div>
+        <div class="about-title-tag">Master Barber</div>
+        <br />
         <p>At Clint's Barbershop in Texarkana, the chair is more than a seat — it's where <strong>craft meets community.</strong> Clint brings a steady hand, a sharp eye, and a genuine love for the trade.</p>
         <p>Whether you're dropping in on your lunch break or booking ahead for a special occasion, you'll leave looking — and feeling — your best. <strong>Walk-ins are always welcome.</strong></p>
-        <a href="tel:9032787793" class="btn btn-primary" style="margin-top:1rem;">&#9990;&nbsp;&nbsp;(903) 278-7793</a>
-      </div>
-      <div class="about-badge">
-        <span class="pole"></span>
-        <div class="badge-main">100%</div>
-        <div class="badge-divider"></div>
-        <div class="badge-sub">Dedicated to the craft</div>
-        <div style="margin-top:1.5rem; font-size:0.9rem; color:rgba(232,232,232,0.45); font-style:italic; line-height:1.7;">
-          Walk-ins welcome.<br/>Appointments encouraged.
-        </div>
+        <a href="tel:9032787793" class="btn btn-primary" style="margin-top:1rem;">✆ (903) 278-7793</a>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
+
   <section id="contact">
-    <p class="section-label">Come See Us</p>
-    <h2 class="section-title">Visit the Shop</h2>
-    <p class="section-sub">Right on Stateline Avenue — easy to find, hard to forget.</p>
-
-    <div class="contact-grid">
-
-      <div class="contact-card">
-        <span class="contact-card-icon">📍</span>
-        <p class="contact-card-label">Address</p>
-        <p class="contact-card-value">
-          <a href="https://maps.google.com/?q=4009+N+Stateline+Ave+Texarkana+TX+75503" target="_blank" rel="noopener">
-            4009 N. Stateline Avenue<br/>Texarkana, TX 75503
-          </a>
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <span class="contact-card-icon">📞</span>
-        <p class="contact-card-label">Phone</p>
-        <p class="contact-card-value">
-          <a href="tel:9032787793">(903) 278-7793</a>
-        </p>
-        <div style="margin-top:1.6rem;">
-          <p class="contact-card-label">Follow Us</p>
-          <div class="social-card-row">
-            <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
+    <div class="contact-inner">
+      <div>
+        <p class="section-label">Come See Us</p>
+        <h2 class="section-title">Visit the Shop</h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--muted); font-size:1.05rem; margin-bottom:2rem;">Right on Stateline Avenue — easy to find, hard to forget.</p>
+        <div class="contact-info-block">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div class="contact-item-label">Address</div>
+              <div class="contact-item-value">
+                <a href="https://maps.google.com/?q=4009+N+Stateline+Ave+Texarkana+TX+75503" target="_blank">
+                  4009 N. Stateline Avenue<br>Texarkana, TX 75503
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value"><a href="tel:9032787793">(903) 278-7793</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"></span>
+            <div>
+              <div class="contact-item-label">Follow Us</div>
+              <div class="social-links">
+                <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="contact-card">
-        <span class="contact-card-icon">🕐</span>
-        <p class="contact-card-label">Hours</p>
+      <div>
+        <p class="section-label">🕐 Hours</p>
         <table class="hours-table">
           <tbody>
-            <tr id="row-mon"><td>Mon</td><td>9 AM – 12 PM</td></tr>
-            <tr id="row-tue"><td>Tue</td><td>9 AM – 6 PM</td></tr>
-            <tr id="row-wed"><td>Wed</td><td>9 AM – 6 PM</td></tr>
-            <tr id="row-thu"><td>Thu</td><td>9 AM – 6 PM</td></tr>
-            <tr id="row-fri"><td>Fri</td><td>9 AM – 6 PM</td></tr>
-            <tr id="row-sat"><td>Sat</td><td>9 AM – 4 PM</td></tr>
-            <tr id="row-sun"><td>Sun</td><td class="hours-closed">Closed</td></tr>
+            <tr id="row-mon"><td>Monday</td><td>9 AM – 12 PM</td></tr>
+            <tr id="row-tue"><td>Tuesday</td><td>9 AM – 6 PM</td></tr>
+            <tr id="row-wed"><td>Wednesday</td><td>9 AM – 6 PM</td></tr>
+            <tr id="row-thu"><td>Thursday</td><td>9 AM – 6 PM</td></tr>
+            <tr id="row-fri"><td>Friday</td><td>9 AM – 6 PM</td></tr>
+            <tr id="row-sat"><td>Saturday</td><td>9 AM – 4 PM</td></tr>
+            <tr id="row-sun"><td>Sunday</td><td>Closed</td></tr>
           </tbody>
         </table>
+        <p style="margin-top:2rem; font-size:0.9rem; color:var(--muted); font-family:'Oswald',sans-serif; letter-spacing:0.08em; text-transform:uppercase; line-height:1.8;">
+          💈 Walk-ins Welcome — Appointments Encouraged —<br>
+          Call (903) 278-7793 to Reserve Your Spot
+        </p>
       </div>
-
-    </div>
-
-    <div class="walkin-banner">
-      <span class="walkin-icon">💈</span>
-      <p class="walkin-text">
-        <span>Walk-ins Welcome</span> &nbsp;—&nbsp; Appointments Encouraged &nbsp;—&nbsp;
-        Call <span>(903) 278-7793</span> to Reserve Your Spot
-      </p>
     </div>
   </section>
 
   <!-- MAP -->
+
   <div id="map">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287!2d-94.0632!3d33.4663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s4009+N+Stateline+Ave%2C+Texarkana%2C+TX+75503!5e0!3m2!1sen!2sus!4v1"
@@ -826,28 +732,26 @@
       referrerpolicy="no-referrer-when-downgrade"
       title="Clint's Barbershop Map">
     </iframe>
-    <div class="map-overlay"></div>
   </div>
 
   <!-- FOOTER -->
+
   <footer>
     <div class="footer-inner">
       <div class="footer-social">
-        <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <a href="https://www.facebook.com/share/14fGdsQ1wMt/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <a href="https://www.instagram.com/clintsbarbershop?igsh=MWgzaWl3YXNjOHZkZw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
       </div>
-      <p>&copy; 2025 Clint's Barbershop &nbsp;|&nbsp; 4009 N. Stateline Ave, Texarkana TX &nbsp;|&nbsp;
-        <a href="tel:9032787793">(903) 278-7793</a>
-      </p>
+      <p>&copy; 2025 Clint's Barbershop &nbsp;|&nbsp; 4009 N. Stateline Ave, Texarkana TX &nbsp;|&nbsp; <a href="tel:9032787793">(903) 278-7793</a></p>
     </div>
   </footer>
 
   <script>
-    // Highlight today's hours row automatically
+    // Highlight today's hours row
     const days = ['sun','mon','tue','wed','thu','fri','sat'];
     const today = days[new Date().getDay()];
     const row = document.getElementById('row-' + today);
