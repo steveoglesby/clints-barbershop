@@ -23,7 +23,7 @@ export async function onRequest(context) {
     }
     try {
       const { results } = await env.DB.prepare(
-        `SELECT time FROM appointments WHERE date = ? AND status != 'cancelled'`
+        `SELECT time FROM bookings WHERE date = ? AND status != 'cancelled'`
       ).bind(date).all();
       const booked = results.map(r => r.time);
       return new Response(JSON.stringify({ booked }), { status: 200, headers });
@@ -48,7 +48,7 @@ export async function onRequest(context) {
     try {
       // Check if slot is already taken
       const existing = await env.DB.prepare(
-        `SELECT id FROM appointments WHERE date = ? AND time = ? AND status != 'cancelled'`
+        `SELECT id FROM bookings WHERE date = ? AND time = ? AND status != 'cancelled'`
       ).bind(date, time).first();
 
       if (existing) {
@@ -56,8 +56,8 @@ export async function onRequest(context) {
       }
 
       await env.DB.prepare(
-        `INSERT INTO appointments (name, phone, date, time, notes, source, status, created_at)
-         VALUES (?, ?, ?, ?, ?, 'online', 'active', datetime('now'))`
+        `INSERT INTO bookings (name, phone, date, time, notes, source, status, created_at)
+         VALUES (?, ?, ?, ?, ?, 'online', 'confirmed', datetime('now'))`
       ).bind(name, phone.trim(), date, time, notes || '').run();
 
       return new Response(JSON.stringify({ success: true }), { status: 201, headers });
